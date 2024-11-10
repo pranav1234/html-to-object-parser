@@ -93,14 +93,13 @@ export default function htmlToObject(html) {
   const result = parseHTML(html);
   return result.length === 1 ? result[0] : result;
 }
-console.log(
-  JSON.stringify(
-    htmlToObject(`<div>
-                  <p>Child paragraph</p>
-                      Parent text
-              </div>`),
-    null,
-    4
-  )
-);
-//   module.exports = htmlToObject;
+// console.log(
+//   JSON.stringify(
+//     htmlToObject(`<div>
+//                   <p>Child paragraph</p>
+//                       Parent text
+//               </div>`),
+//     null,
+//     4
+//   )
+// );

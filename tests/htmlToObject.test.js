@@ -1,5 +1,5 @@
 // tests/htmlToObject.test.js
-import htmlToObject from "../src/htmlToObject";
+import htmlToObject from "../src";
 
 describe("htmlToObject", () => {
   test("should parse a simple div with text", () => {
