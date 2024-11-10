@@ -1,5 +1,5 @@
 // tests/htmlToObject.test.js
-import htmlToObject from "../src/htmlToObject";
+import htmlToObject from "../src/text";
 
 describe("htmlToObject", () => {
   test("should parse a simple div with text", () => {
@@ -40,6 +40,25 @@ describe("htmlToObject", () => {
             <div>
                 Parent text
                 <p>Child paragraph</p>
+            </div>
+        `;
+    const expectedOutput = {
+      tag: "div",
+      text: "Parent text",
+      children: [
+        {
+          tag: "p",
+          text: "Child paragraph",
+        },
+      ],
+    };
+    expect(htmlToObject(html)).toEqual(expectedOutput);
+  });
+  test("should parse nested elements after", () => {
+    const html = `
+            <div>
+                <p>Child paragraph</p>
+                    Parent text
             </div>
         `;
     const expectedOutput = {
@@ -102,10 +121,9 @@ describe("htmlToObject", () => {
       children: [
         {
           tag: "img",
-          attributes: {
-            src: "image.png",
-            alt: "Sample image",
-          },
+
+          src: "image.png",
+          alt: "Sample image",
         },
       ],
     };
