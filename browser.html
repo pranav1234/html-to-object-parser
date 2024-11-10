@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>HTML to Object Parser</title>
+</head>
+
+<body>
+    <h1>HTML to Object Parser</h1>
+    <textarea id="html-input" rows="10" cols="50" placeholder="Enter HTML here"></textarea>
+    <button onclick="parseInput()">Parse HTML</button>
+    <pre id="output"></pre>
+
+    <script type="module">
+        import parseHTML from './src/index.js';
+
+        function parseInput() {
+            const htmlInput = document.getElementById('html-input').value;
+            const result = parseHTML(htmlInput);
+            document.getElementById('output').textContent = JSON.stringify(result, null, 2);
+        }
+        window.parseInput = parseInput;
+
+    </script>
+</body>
+
+</html>
